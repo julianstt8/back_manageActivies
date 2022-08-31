@@ -18,12 +18,16 @@ class actividadesController extends Controller
             ];
             actividadesModel::insert($insertActivities);
             $last = actividadesModel::latest('id_actividad')->first();
-            $insertTime = [
-                'id_actividad' => $last->id_actividad,
-                'fecha' => $request->fecha,
-                'tiempo_gastado' => +$request->tiempo
-            ];
-            tiempoActividadesModel::insert($insertTime);
+
+            $tiempo = json_decode($request->tiempo);
+            foreach ($tiempo as $key => $value) {
+                $insertTime = [
+                    'id_actividad' => $last->id_actividad,
+                    'fecha' => $tiempo[$key]->fecha,
+                    'tiempo_gastado' => +$tiempo[$key]->tiempo
+                ];
+                tiempoActividadesModel::insert($insertTime);
+            }
             return response()->json(['status' => 1]);
         } catch (\Throwable $th) {
             if ($th->getMessage() !== null) {
