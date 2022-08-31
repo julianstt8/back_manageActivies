@@ -44,6 +44,7 @@ class actividadesController extends Controller
         try {
             $activities = actividadesModel::where('id_usuario', +$request->id_usuario)
                 ->join('mng_tiempos', 'mng_tiempos.id_actividad', '=', 'mng_actividades.id_actividad')
+                ->orderBy('mng_actividades.descripcion')
                 ->get();
             return response()->json(['status' => 1, 'data' => $activities]);
         } catch (\Throwable $th) {
