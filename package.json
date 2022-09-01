@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "start":"php artisan serve --host=192.168.2.80 --port=9900",
+        "start":"php artisan serve --host=192.168.80.18 --port=9900",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
