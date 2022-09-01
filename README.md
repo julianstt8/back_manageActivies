@@ -19,7 +19,7 @@ CMD - composer install
 
 ## Levantar servidor
 
-Se debe cambiar la IP `192.168.80.18` que corresponde a la mía en los environment por la IP correspondiente a su PC.
+Se debe cambiar la IP `192.168.80.18` que corresponde a la mía en los environment por la IP correspondiente a su PC (abrir CMD, escribir ipconfig y te arrojara la ip de su pc).
 Luego ejecutar el comando `npm start` este levantara el servidor en esta IP.
 
 ## Crear archivo .env
